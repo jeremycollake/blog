@@ -30,6 +30,6 @@ From the [docs](https://learn.microsoft.com/en-us/windows/win32/api/shellapi/nf-
 
 As for the minimum size, the documentation makes no reference to that. We can assume it’s MAX_PATH, but on Windows that can be expanded and it’s unclear how the API would behave in those situations.
 
-So, as you can now deduce, the problem was that the buffer passed to ExtractAssociatedIcon was, in rare cases, being overwritten, resulting in a buffer overflow.
+So, as you can now deduce, the problem was that the buffer passed to ExtractAssociatedIcon was, in rare cases, being overwritten, sometimes resulting in a buffer overflow.
 
 Although these APIs are not deprecated, there are newer Shell32 APIs like [SHGetFileInfo](https://learn.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shgetfileinfow) to perform this task, and my recommendation is to use them instead.
