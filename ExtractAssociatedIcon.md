@@ -1,3 +1,5 @@
+# A Hazard of ExtractAssociatedIcon and ExtractAssociatedIconEx
+
 A couple years ago I encountered a strange crash on a customer system. After diving deep into it, I found memory corruption had occurred. But how?
 
 Well, I eventually traced it to a call to [ExtractAssociatedIcon](https://learn.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-extractassociatediconw) / [ExtractAssociatedIconEx](https://learn.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-extractassociatediconexw). At the time, I neglected to properly document this hazard, so this Gist exists to warn others about the unsafe design of these APIs and their incomplete documentation.
